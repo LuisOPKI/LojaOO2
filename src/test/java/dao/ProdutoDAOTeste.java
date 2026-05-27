@@ -1,17 +1,19 @@
-package br.edu.utfpr.oo2.loja.dao;
+package dao;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.edu.utfpr.oo2.loja.entity.Produto;
+import dao.BancoDados;
+import dao.ProdutoDAO;
+import dto.ProdutoDTO;
 
 public class ProdutoDAOTeste {
 
 	public static void cadastrarProdutoTeste() throws SQLException, IOException {
 
-		Produto produto = new Produto();
+		ProdutoDTO produto = new ProdutoDTO();
 
 		produto.setNome("Café Torrado e Moído 500g – Melitta Tradicional");
 		produto.setCategoria("Alimentos");
@@ -34,7 +36,7 @@ public class ProdutoDAOTeste {
 	public static void buscarTodosProdutosTeste() throws SQLException, IOException {
 
 		Connection conn = BancoDados.conectar();
-		List<Produto> listaProdutos = new ProdutoDAO(conn).buscarTodos();
+		List<ProdutoDTO> listaProdutos = new ProdutoDAO(conn).buscarTodos();
 
 		if (listaProdutos.isEmpty()) {
 
@@ -42,7 +44,7 @@ public class ProdutoDAOTeste {
 			return;
 		}
 
-		for (Produto produto : listaProdutos) {
+		for (ProdutoDTO produto : listaProdutos) {
 
 			System.out.println(produto);
 		}
@@ -53,7 +55,7 @@ public class ProdutoDAOTeste {
 		int idProduto = 2;
 
 		Connection conn = BancoDados.conectar();
-		Produto produto = new ProdutoDAO(conn).buscarPorCodigo(idProduto);
+		ProdutoDTO produto = new ProdutoDAO(conn).buscarPorCodigo(idProduto);
 		
 		if (produto != null) {
 
@@ -67,7 +69,7 @@ public class ProdutoDAOTeste {
 
 	public static void atualizarProdutoTeste() throws SQLException, IOException {
 
-		Produto produto = new Produto();
+		ProdutoDTO produto = new ProdutoDTO();
 
 		produto.setId(4);
 		produto.setNome("Camiseta Básica Algodão Feminina");

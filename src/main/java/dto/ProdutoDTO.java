@@ -1,6 +1,6 @@
-package br.edu.utfpr.oo2.loja.entity;
+package dto;
 
-public class Produto {
+public class ProdutoDTO {
 
 	private int id;
 	private String nome;
@@ -8,7 +8,7 @@ public class Produto {
 	private double preco;
 	private int quantidadeEstoque;
 	
-	public Produto() {
+	public ProdutoDTO() {
 		
 	}
 

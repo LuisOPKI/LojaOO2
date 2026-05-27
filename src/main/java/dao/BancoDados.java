@@ -1,4 +1,4 @@
-package br.edu.utfpr.oo2.loja.dao;
+package dao;
 
 import java.io.FileInputStream;
 import java.io.IOException;

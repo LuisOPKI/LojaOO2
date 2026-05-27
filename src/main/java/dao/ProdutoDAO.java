@@ -1,4 +1,4 @@
-package br.edu.utfpr.oo2.loja.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.utfpr.oo2.loja.entity.Produto;
+import dto.ProdutoDTO;
 
 public class ProdutoDAO {
 
@@ -18,7 +18,7 @@ public class ProdutoDAO {
 		this.conn = conn;
 	}
 
-	public int cadastrar(Produto produto) throws SQLException {
+	public int cadastrar(ProdutoDTO produto) throws SQLException {
 
 		PreparedStatement st = null;
 
@@ -40,7 +40,7 @@ public class ProdutoDAO {
 		}
 	}
 
-	public List<Produto> buscarTodos() throws SQLException {
+	public List<ProdutoDTO> buscarTodos() throws SQLException {
 
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -51,11 +51,11 @@ public class ProdutoDAO {
 
 			rs = st.executeQuery();
 
-			List<Produto> listaProdutos = new ArrayList<>();
+			List<ProdutoDTO> listaProdutos = new ArrayList<>();
 
 			while (rs.next()) {
 
-				Produto produto = new Produto();
+				ProdutoDTO produto = new ProdutoDTO();
 
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
@@ -76,7 +76,7 @@ public class ProdutoDAO {
 		}
 	}
 
-	public Produto buscarPorCodigo(int idProduto) throws SQLException {
+	public ProdutoDTO buscarPorCodigo(int idProduto) throws SQLException {
 
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -91,7 +91,7 @@ public class ProdutoDAO {
 
 			if (rs.next()) {
 
-				Produto produto = new Produto();
+				ProdutoDTO produto = new ProdutoDTO();
 
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
@@ -112,7 +112,7 @@ public class ProdutoDAO {
 		}
 	}
 	
-	public int atualizar(Produto produto) throws SQLException {
+	public int atualizar(ProdutoDTO produto) throws SQLException {
 
 		PreparedStatement st = null;
 
