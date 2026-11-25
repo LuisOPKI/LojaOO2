@@ -2,7 +2,7 @@
 
 1. Clone o projeto para a pasta **"eclipse-workspace"**:
 
-`git clone https://github.com/vcandrade/LojaOO2`
+`git clone https://github.com/LuisOPKI/LojaOO2`
 
 - Alternativa: Faça download e descompacte o projeto na pasta **"eclipse-workspace"**.
 
